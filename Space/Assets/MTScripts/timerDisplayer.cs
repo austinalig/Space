@@ -13,7 +13,7 @@ public class timerDisplayer : MonoBehaviour {
 
         if(Mathf.Round(Time.time) % 5 == 0)
         {
-            Debug.Log(Mathf.Round(Time.time));
+            Debug.Log(Time.time);
 
         }
 	
