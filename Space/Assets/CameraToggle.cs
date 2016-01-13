@@ -2,13 +2,15 @@
 using System.Collections;
 
 public class CameraToggle : MonoBehaviour {
-	private Transform cam;
+	public Camera cam;
+	public Camera cam2;
 	private bool flag;
 	private bool cflag;
 
 	// Use this for initialization
 	void Start () {
-		cam = GetComponent<Transform> ();
+		cam.enabled = true;
+		cam2.enabled = false;
 		flag = true;
 		cflag = true;
 	}
@@ -16,8 +18,11 @@ public class CameraToggle : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if(Input.GetKeyDown (KeyCode.P))
-		{//On "P" toggle the camera view by shifting the transform
-			if (flag)
+		{      
+			cam.enabled = !cam.enabled;
+			cam2.enabled = !cam2.enabled;
+			//On "P" toggle the camera view by shifting the transform
+			/*if (flag)
 			{
 				cam.position = (cam.position + (cam.rotation * new Vector3(0, 0, 3)));
 				flag = false;
@@ -39,7 +44,7 @@ public class CameraToggle : MonoBehaviour {
 			{
 				cam.position = (cam.position + new Vector3(0 , 1, 0));
 				cflag = true;
-			}
+			}*/
 	}
 }
 }

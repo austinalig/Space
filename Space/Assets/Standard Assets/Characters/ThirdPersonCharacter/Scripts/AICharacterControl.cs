@@ -10,7 +10,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public NavMeshAgent agent { get; private set; } // the navmesh agent required for the path finding
         public ThirdPersonCharacter character { get; private set; } // the character we are controlling
         public Transform target; // target to aim for
-
+		public int x = 50;
         // Use this for initialization
         private void Start()
         {
@@ -24,24 +24,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 
         // Update is called once per frame
-        private void Update()
-        {
-            if (target != null)
-            {
-                agent.SetDestination(target.position);
+        private void FixedUpdate()
+		{
+			if ((Vector3.Distance (agent.transform.position, target.transform.position) > x)&&(target != null)) {
+					agent.SetDestination (target.position);
 
 				
 				
-                // use the values to move the character
-                character.Move(agent.desiredVelocity, false, false);
-            }
-            else
-            {
-                // We still need to call the character's move function, but we send zeroed input as the move param.
-                character.Move(Vector3.zero, false, false);
-            }
-
-        }
+					// use the values to move the character
+					character.Move (agent.desiredVelocity, false, false);
+				} else {
+					// We still need to call the character's move function, but we send zeroed input as the move param.
+					character.Move (Vector3.zero, false, false);
+				}
+			}
 
 
         public void SetTarget(Transform target)
