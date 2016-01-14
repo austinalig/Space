@@ -3,7 +3,7 @@ using System;
 
 //code is used to return a random number given certain parameters
 public class monkeySortGenerator {
-    monkeySortGenerator() { }
+    public monkeySortGenerator() { }
 
 
     //checks the list
@@ -27,10 +27,11 @@ public class monkeySortGenerator {
     private void switchTwo(int[] list, int first, int second){
         int hold = list[first];
         list[first] = list[second];
-        list[second] = list[first];
+        list[second] = hold;
     }
 
     //full algorithm
+    //max is exclusive
     public int generate(int min, int max, int listSize, int listMin, int listMax, int minTurns, int maxTurns)
     {
         int [] list = new int[listSize];
@@ -41,17 +42,24 @@ public class monkeySortGenerator {
             list[i] = generator.Next(listMin, listMax);
         }
 
-        for(int i = 0; i < minTurns || i < maxTurns; i++)
+        for(int i = 0; i < minTurns || i <= maxTurns; i++)
         {
             int firstPosition = generator.Next(0, listSize);
             int secondPosition = generator.Next(0, listSize);
             switchTwo(list, firstPosition, secondPosition);
 
-            if(i >= minTurns)
+            //if the algorithm is taking too long, resort to fallback
+            if (i == maxTurns)
             {
+                result = generator.Next(minTurns, maxTurns);
+            }
+
+            if (i >= minTurns && checkSorted(list))
+            {
+                result = i;
                 i = maxTurns;
             }
-            result = i;
+
         }
 
         result = result % (max - min) + min;

@@ -48,6 +48,7 @@
      <Compile Include="Assets\CameraToggle.cs" />
      <Compile Include="Assets\MTScripts\behaviorAllowance.cs" />
      <Compile Include="Assets\MTScripts\monkeySortGenerator.cs" />
+     <Compile Include="Assets\MTScripts\retreatScript.cs" />
      <Compile Include="Assets\MTScripts\timerDisplayer.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
