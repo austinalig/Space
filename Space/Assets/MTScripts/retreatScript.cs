@@ -9,11 +9,13 @@ public class retreatScript : MonoBehaviour {
     private Transform locatedTarget;
     private bool on;
     private monkeySortGenerator random;
+    private GameObject [] listObj;
     void Start () {
         random = new monkeySortGenerator();
         AIObject = GameObject.Find("AIThirdPersonController 4");
         locatedTarget = GameObject.Find("GameObject").transform; ;
         on = false;
+        listObj = new GameObject [1];
     }
 	
 	// Update is called once per frame
@@ -21,7 +23,6 @@ public class retreatScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space)) {
             Debug.Log("space pressed");
             on = !on;
-            
             if (on)
             {
                 locatedTarget = GameObject.Find("GameObject").transform;
@@ -34,13 +35,17 @@ public class retreatScript : MonoBehaviour {
                 } while (newX == locatedTarget.position.x
                       && newY == locatedTarget.position.y);
                 Debug.Log("x" + newX + ": y" + newY);
-                Transform nothing = locatedTarget;
-                nothing.position = new Vector3(newX, newY, newZ);
+                listObj[0] = new GameObject();
+                listObj[0].name = "ghostPosition";
+                listObj[0].transform.position = new Vector3(newX, newY, newZ);
 
-                AIObject.GetComponent<AICharacterControl>().target = nothing;
+                AIObject.GetComponent<AICharacterControl>().target = listObj[0].transform;
             }else
             {
+                GameObject.Destroy(listObj[0]);
                 AIObject.GetComponent<AICharacterControl>().target = GameObject.Find("GameObject").transform;
+                Debug.Log("x" + AIObject.GetComponent<AICharacterControl>().target.position.x + ": y" + AIObject.GetComponent<AICharacterControl>().target.position.x);
+                Debug.Log("y" + AIObject.GetComponent<AICharacterControl>().target.position.x + ": y" + AIObject.GetComponent<AICharacterControl>().target.position.y);
             }
         }
 
