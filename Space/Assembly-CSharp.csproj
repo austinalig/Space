@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\CameraToggle.cs" />
      <Compile Include="Assets\MTScripts\behaviorAllowance.cs" />
+     <Compile Include="Assets\MTScripts\follow.cs" />
      <Compile Include="Assets\MTScripts\monkeySortGenerator.cs" />
      <Compile Include="Assets\MTScripts\retreatScript.cs" />
      <Compile Include="Assets\MTScripts\timerDisplayer.cs" />
