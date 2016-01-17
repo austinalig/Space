@@ -48,8 +48,11 @@
      <Compile Include="Assets\CameraToggle.cs" />
      <Compile Include="Assets\MTScripts\behaviorAllowance.cs" />
      <Compile Include="Assets\MTScripts\follow.cs" />
+     <Compile Include="Assets\MTScripts\genericHealthController.cs" />
      <Compile Include="Assets\MTScripts\monkeySortGenerator.cs" />
      <Compile Include="Assets\MTScripts\pause.cs" />
+     <Compile Include="Assets\MTScripts\playerAttributes.cs" />
+     <Compile Include="Assets\MTScripts\playerDisplay.cs" />
      <Compile Include="Assets\MTScripts\retreatScript.cs" />
      <Compile Include="Assets\MTScripts\spawner.cs" />
      <Compile Include="Assets\MTScripts\timerDisplayer.cs" />

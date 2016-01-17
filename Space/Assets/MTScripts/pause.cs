@@ -15,7 +15,7 @@ public class pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (Time.timeScale == 1)
             {
