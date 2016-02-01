@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
 
 public class pause : MonoBehaviour
 {
 
-    private GameObject pauseText;
+    //make sure this is a sprite
+    public GameObject pauseScreen;
 
     // Use this for initialization
     void Start()
     {
-        pauseText = GameObject.Find("PauseText");
+       
     }
 
     // Update is called once per frame
@@ -20,11 +23,11 @@ public class pause : MonoBehaviour
             if (Time.timeScale == 1)
             {
                 Time.timeScale = 0;
-                pauseText.GetComponent<SpriteRenderer>().enabled = true;
+                pauseScreen.GetComponent<Image>().enabled = true;
             }
             else
             {
-                pauseText.GetComponent<SpriteRenderer>().enabled = false;
+                pauseScreen.GetComponent<Image>().enabled = false;
                 Time.timeScale = 1;
             }
         }

@@ -50,6 +50,8 @@
      <Compile Include="Assets\MTScripts\behaviorAllowance.cs" />
      <Compile Include="Assets\MTScripts\follow.cs" />
      <Compile Include="Assets\MTScripts\genericHealthController.cs" />
+     <Compile Include="Assets\MTScripts\levelGenerator.cs" />
+     <Compile Include="Assets\MTScripts\makingNoise.cs" />
      <Compile Include="Assets\MTScripts\monkeySortGenerator.cs" />
      <Compile Include="Assets\MTScripts\pause.cs" />
      <Compile Include="Assets\MTScripts\playerAttributes.cs" />

@@ -13,7 +13,7 @@ public class retreatScript : MonoBehaviour {
     void Start () {
         random = new monkeySortGenerator();
         AIObject = GameObject.Find("AIThirdPersonController 4");
-        locatedTarget = GameObject.Find("GameObject").transform; ;
+        locatedTarget = GameObject.Find("GameObject").transform;
         on = false;
         listObj = new GameObject [1];
     }
