@@ -11,7 +11,8 @@ public class FinalScore : MonoBehaviour {
 	void Awake () {
 		Debug.Log (score);
 		Text = GetComponent <TextMesh>();
-		score = ScoreManager.hiddenscore;
+        //This was hidden score for some reason
+		score = ScoreManager.score;
 		Debug.Log (score);
 	}
 	
