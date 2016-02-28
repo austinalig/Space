@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scriptTestingField.unity
+- path: 3DShooter/Assets/Simple level.unity
   isLoaded: 1
   isActive: 1

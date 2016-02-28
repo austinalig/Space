@@ -210,6 +210,7 @@
      <Compile Include="Assets\controllerCommunication.cs" />
      <Compile Include="Assets\damage.cs" />
      <Compile Include="Assets\enemyshoot.cs" />
+     <Compile Include="Assets\notificationScript.cs" />
      <Compile Include="Assets\perspectiveSwitcher.cs" />
      <Compile Include="Assets\testingScripts\monkeySort.cs" />
      <Compile Include="Assets\testingScripts\randomNumberGenerator.cs" />
