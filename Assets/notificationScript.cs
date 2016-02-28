@@ -58,10 +58,12 @@ public class notificationScript : MonoBehaviour {
                 //decrease Opacity
                 if (switchTimer.ElapsedMilliseconds / timeToWait < 1)
                 {
+                    GameObject.Find("rEVOLVErBlueLight").GetComponent<Light>().intensity = 1 - (0 + (switchTimer.ElapsedMilliseconds / timeToWait));
                     gameObject.GetComponent<CanvasRenderer>().SetAlpha(maxOpac - (minOpac + (switchTimer.ElapsedMilliseconds / timeToWait)));
                 }
                 else
                 {
+                    GameObject.Find("rEVOLVErBlueLight").GetComponent<Light>().intensity = 0;
                     gameObject.GetComponent<CanvasRenderer>().SetAlpha(minOpac);
                     displayed = false;
                     switching = false;
@@ -75,10 +77,12 @@ public class notificationScript : MonoBehaviour {
                 //increase Opacity
                 if (switchTimer.ElapsedMilliseconds / timeToWait < maxOpac)
                 {
+                    GameObject.Find("rEVOLVErBlueLight").GetComponent<Light>().intensity = (switchTimer.ElapsedMilliseconds / timeToWait);
                     gameObject.GetComponent<CanvasRenderer>().SetAlpha(switchTimer.ElapsedMilliseconds / timeToWait);
                 }
                 else
                 {
+                    GameObject.Find("rEVOLVErBlueLight").GetComponent<Light>().intensity = 1;
                     gameObject.GetComponent<CanvasRenderer>().SetAlpha(maxOpac);
                     displayed = true;
                     switching = false;
