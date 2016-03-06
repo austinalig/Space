@@ -209,9 +209,14 @@
      <Compile Include="Assets\_CompletedAssets\Scripts\Player\PlayerHealth.cs" />
      <Compile Include="Assets\controllerCommunication.cs" />
      <Compile Include="Assets\damage.cs" />
+     <Compile Include="Assets\destroyTimer.cs" />
      <Compile Include="Assets\enemyshoot.cs" />
+     <Compile Include="Assets\gunSetting.cs" />
+     <Compile Include="Assets\gunUpgradingSystem.cs" />
      <Compile Include="Assets\notificationScript.cs" />
+     <Compile Include="Assets\otherGunAttributes.cs" />
      <Compile Include="Assets\perspectiveSwitcher.cs" />
+     <Compile Include="Assets\successMeasurer.cs" />
      <Compile Include="Assets\testingScripts\monkeySort.cs" />
      <Compile Include="Assets\testingScripts\randomNumberGenerator.cs" />
      <Compile Include="Assets\testingScripts\tester.cs" />
