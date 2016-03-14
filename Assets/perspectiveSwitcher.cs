@@ -10,7 +10,7 @@ public class perspectiveSwitcher : MonoBehaviour {
     private bool switcher;
 
 	void Start () {
-       // firstPerspective = GameObject.Find("FirstPersonCharacterController");
+       //firstPerspective = GameObject.Find("FirstPersonCharacterController");
         firstCamera = GameObject.Find("firstCamera");
         thirdPerspective = GameObject.Find("ThirdPersonCharacter");
         switcher = true;
@@ -31,7 +31,6 @@ public class perspectiveSwitcher : MonoBehaviour {
                 firstCamera.SetActive(false);
                 thirdPerspective.SetActive(true);
                 switcher = false;
-
             }
             else
             {
