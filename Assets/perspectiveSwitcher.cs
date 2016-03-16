@@ -7,6 +7,7 @@ public class perspectiveSwitcher : MonoBehaviour {
     private GameObject firstPerspective;
     private GameObject thirdPerspective;
     private GameObject firstCamera;
+    private Behaviour player;
     private bool switcher;
 
 	void Start () {
@@ -14,12 +15,13 @@ public class perspectiveSwitcher : MonoBehaviour {
         firstCamera = GameObject.Find("firstCamera");
         thirdPerspective = GameObject.Find("ThirdPersonCharacter");
         switcher = true;
-	}
+        player = GameObject.Find("FirstPersonCharacterController").GetComponent<FirstPersonController>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown("p"))
+        if (Input.GetKeyDown(KeyCode.P))
         {
 
             Debug.Log("Whatever");
@@ -27,7 +29,9 @@ public class perspectiveSwitcher : MonoBehaviour {
             if (switcher)
             {
                 //switch to third person
-                gameObject.GetComponent<FirstPersonController>().enabled = false;
+
+                player.enabled = false;
+                
                 firstCamera.SetActive(false);
                 thirdPerspective.SetActive(true);
                 switcher = false;
@@ -35,8 +39,8 @@ public class perspectiveSwitcher : MonoBehaviour {
             else
             {
                 //switch to first
-                gameObject.GetComponent<FirstPersonController>().enabled = true;
-                firstCamera.SetActive(false);
+                this.gameObject.GetComponent<FirstPersonController>().enabled = true;
+                firstCamera.SetActive(true);
                 thirdPerspective.SetActive(false);
                 switcher = true;
             }

@@ -15,7 +15,6 @@ public class destroyTimer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(timer.ElapsedMilliseconds);
 	    if(timer.ElapsedMilliseconds >= timeTilDeletion * 1000)
         {
             GameObject.Destroy(gameObject);
