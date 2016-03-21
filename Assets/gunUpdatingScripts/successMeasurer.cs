@@ -18,6 +18,7 @@ public class successMeasurer: MonoBehaviour{
     void Awake()
     {
         attributeIncrease = new float [attributeTotal];
+        attributes = new string[attributeTotal];
 
         for(int i = 0; i < attributeTotal; i++)
         {

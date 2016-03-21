@@ -35,7 +35,9 @@ public class characterSuccess : MonoBehaviour {
 
         if (!alive)
         {
+
             success.GetComponent<successMeasurer>().incrementFailures();
+            //gameObject.GetType().GetField("failures").SetValue(gameObject, (int)gameObject.GetType().GetField("failures").GetValue(gameObject) + 1);
             health = 100;
             alive = true;
         }
