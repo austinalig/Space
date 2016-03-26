@@ -58,6 +58,7 @@
      <Compile Include="Assets\GradientGUIBars\Script\MoveCameraScript.cs" />
      <Compile Include="Assets\LevelManager.cs" />
      <Compile Include="Assets\Leveltrigger.cs" />
+     <Compile Include="Assets\ManCannon.cs" />
      <Compile Include="Assets\Movement.cs" />
      <Compile Include="Assets\SampleAgentScript.cs" />
      <Compile Include="Assets\SampleAssets\2D\Scripts\Camera2DFollow.cs" />
@@ -210,6 +211,7 @@
      <Compile Include="Assets\_CompletedAssets\Scripts\Player\PlayerHealth.cs" />
      <Compile Include="Assets\controllerCommunication.cs" />
      <Compile Include="Assets\damage.cs" />
+     <Compile Include="Assets\damageDealer.cs" />
      <Compile Include="Assets\destroyTimer.cs" />
      <Compile Include="Assets\enemyshoot.cs" />
      <Compile Include="Assets\gunSetting.cs" />
@@ -222,6 +224,7 @@
      <Compile Include="Assets\otherGunAttributes.cs" />
      <Compile Include="Assets\perspectiveSwitcher.cs" />
      <Compile Include="Assets\successTester.cs" />
+     <Compile Include="Assets\temporaryEnemyScriptForGunUpgrade.cs" />
      <Compile Include="Assets\testingScripts\monkeySort.cs" />
      <Compile Include="Assets\testingScripts\randomNumberGenerator.cs" />
      <Compile Include="Assets\testingScripts\tester.cs" />

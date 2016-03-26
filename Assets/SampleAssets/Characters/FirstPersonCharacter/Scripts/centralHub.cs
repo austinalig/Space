@@ -16,13 +16,18 @@ public static class centralHub
     public static bool playerAlive;
     public static bool goalReached;
     public static float enemiesKilled;
-    private static monkeySortGenerator generator = new monkeySortGenerator();
-    public static myList attributeIncrease = new myList();
-    static int attributeTotal;
+    public static bool updatingChoices = false;
+    public static bool updatingGunSpecs = false;
+    //public static myList attributeIncrease = new myList();
+    public static int totalAttributes = 6;
+    public static float [] attributeIncrease = new float[totalAttributes];
+    public static float[] clone1;
+    public static float[] clone2;
+    private static System.Random generator = new System.Random();
 
 
 
-
+    /*
     //my personal linked list
      public class myList{
         int position;
@@ -124,75 +129,136 @@ public static class centralHub
         }
     }
     //end of the linked list class
+    */
 
-        
 
+        /*
+                public static int addToList()
+            {
+                //returns the position the value will be connected to
+                //uses a random increase for first setting
+                int positive = generator.Next(0,2);
+                if (positive == 0)
+                {
+                    return attributeIncrease.addToEnd(assignRandomPercentage(true, 0, 20), -1);
+                }
+                else
+                {
+                    return attributeIncrease.addToEnd(assignRandomPercentage(false, 0, 20), -1);
+                }
+            }
 
-        public static int addToList()
+            public static float getIncrease(int p)
+            {
+                return attributeIncrease.get(p);
+            }*/
+
+    public static void init()
     {
-        //returns the position the value will be connected to
-        //uses a random increase for first setting
-        int positive = generator.generate(0, 2, 5, 0, 10, 0, 100);
-        if (positive == 0)
+        for(int i = 0; i < totalAttributes; i++)
         {
-            return attributeIncrease.addToEnd(assignRandomPercentage(true, 0, 20), -1);
-        }
-        else
-        {
-            return attributeIncrease.addToEnd(assignRandomPercentage(false, 0, 20), -1);
+            int positive = generator.Next(0, 2);
+            if (positive == 0) {
+                attributeIncrease[i] = assignRandomPercentage(false,0,20);
+            }else
+            {
+                attributeIncrease[i] = assignRandomPercentage(true, 0, 20);
+            }
         }
     }
 
-    public static float getIncrease(int p)
+    public static bool calculate()
     {
-        return attributeIncrease.get(p);
-    }
-
-    public static void calculate()
-    {
+        updatingChoices = true;
+        updatingGunSpecs = true;
         Debug.Log("upgrading gun");
         prevSuccessRate = successRate;
         successRate = (successes / (successes + failures)) + 0.5F * enemiesKilled;
+        clone1 = (float[])attributeIncrease.Clone();
+        clone2 = (float[])attributeIncrease.Clone();
+        changeAnArray(clone1);
+        changeAnArray(clone2);
+        updatingChoices = false;
 
-        //the player is getting better
-        //the technique is working
+        while (notificationScript.playerIsChoosing)
+        {
+            //wait for player to choose upgrade
+        }
+
+        if(notificationScript.playerChoice == 1)
+        {
+            attributeIncrease = clone1;
+        }else if(notificationScript.playerChoice == 2)
+        {
+            attributeIncrease = clone2;
+        }
+
+        notificationScript.playerIsChoosing = true;
+        updatingGunSpecs = false;
+        successes = 0;
+        failures = 0;
+        enemiesKilled = 0;
+
+        return notificationScript.playerChoice != 3;
+
+
+
+    }
+
+    //returns a percentage value as a double
+    static float assignRandomPercentage(bool positive, int min, int max/*exclusive*/)
+    {
+        if (positive)
+        {
+            return generator.Next(min, max) * 0.01F;
+        }
+        else
+        {
+            return -generator.Next(min,max) * 0.01F;
+        }
+    }
+
+    static void changeAnArray(float [] array)
+    {
         if (successRate > prevSuccessRate)
         {
-            for(int i = 0; i < attributeIncrease.length(); i++)
+            for (int i = 0; i < totalAttributes; i++)
             {
-                float copy = attributeIncrease.get(i);
-                float randomNumber =  assignRandomPercentage(true, 0, 20);
+                float copy = array[i];
+                float randomNumber = assignRandomPercentage(true, 0, 20);
 
                 if (copy > 0)
                 {
-                    attributeIncrease.set(i, randomNumber);
-                }else if(copy < 0)
+                    array[i] = randomNumber;
+                }
+                else if (copy < 0)
                 {
-                    attributeIncrease.set(i, -randomNumber);
+                    array[i] = -randomNumber;
                 }
             }
             //the player is getting race
             //go the opposite direction
-        }else if(successRate > prevSuccessRate)
+        }
+        else if (successRate > prevSuccessRate)
         {
-            for (int i = 0; i < attributeIncrease.length(); i++)
+            for (int i = 0; i < totalAttributes; i++)
             {
-                float copy = attributeIncrease.get(i);
+                float copy = attributeIncrease[i];
                 float randomNumber = assignRandomPercentage(true, 0, 20);
 
-                
+
 
                 if (copy > 0)
                 {
-                    attributeIncrease.set(i, -randomNumber);
+                    array[i] = -randomNumber;
                 }
                 else if (copy < 0)
                 {
-                    attributeIncrease.set(i, randomNumber);
+                    array[i] = randomNumber;
                 }
                 else
                 {
-                    attributeIncrease.set(i, randomNumber);
+                    array[i] = randomNumber;
                 }
             }
 
@@ -201,36 +267,25 @@ public static class centralHub
         else
         {
 
-            for (int i = 0; i < attributeIncrease.length(); i++)
+            for (int i = 0; i < totalAttributes; i++)
             {
-                
+
                 float randomNumber = assignRandomPercentage(true, 0, 20);
-                int positive = generator.generate(0, 2, 5, 0, 10, 0, 100);
+                int positive = generator.Next(0, 2);
 
                 if (positive == 0)
                 {
-                    attributeIncrease.set(i, -randomNumber);
+                    array[i] = -randomNumber;
                 }
                 else
                 {
-                    attributeIncrease.set(i, randomNumber);
+                    array[i] = randomNumber;
                 }
+
+
             }
         }
 
-        }
-
-    //returns a percentage value as a double
-    static float assignRandomPercentage(bool positive, int min, int max/*exclusive*/)
-    {
-        if (positive)
-        {
-            return generator.generate(min, max, 5, 0, 10, 0, 100) * 0.01F;
-        }
-        else
-        {
-            return -generator.generate(min, max, 5, 0, 10, 0, 100) * 0.01F;
-        }
     }
 
 
