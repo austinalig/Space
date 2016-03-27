@@ -8240,6 +8240,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ad27068ce190a4a97ec3e1b1225d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1029447049
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1029447046}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1031675416
 GameObject:
   m_ObjectHideFlags: 0
@@ -8787,6 +8802,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   speed: 0
   fireRate: 0.5
+  enemyCount: []
 --- !u!4 &1127886628
 Transform:
   m_ObjectHideFlags: 0
@@ -11428,6 +11444,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 11455196, guid: 2d082edb9e59a1b4581ff3696a6a7bfb, type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1529325888}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d082edb9e59a1b4581ff3696a6a7bfb, type: 2}
   m_IsPrefabParent: 0
@@ -15307,6 +15327,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   speed: 0
   fireRate: 0.5
+  enemyCount: []
 --- !u!81 &2067434632
 AudioListener:
   m_ObjectHideFlags: 0
@@ -15792,9 +15813,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdac91da92d28ce4488e98a3d78f5c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  projectile: {fileID: 1029447049}
   speed: 0
   fireRate: 0.5
+  enemyCount: []
 --- !u!4 &2145299984
 Transform:
   m_ObjectHideFlags: 0

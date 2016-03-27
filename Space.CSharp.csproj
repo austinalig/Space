@@ -57,6 +57,12 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -234,6 +240,7 @@
     <Compile Include="Assets\_CompletedAssets\Scripts\Player\PlayerHealth.cs" />
     <Compile Include="Assets\controllerCommunication.cs" />
     <Compile Include="Assets\damage.cs" />
+    <Compile Include="Assets\damageDealer.cs" />
     <Compile Include="Assets\destroyTimer.cs" />
     <Compile Include="Assets\enemyshoot.cs" />
     <Compile Include="Assets\gunSetting.cs" />
@@ -246,6 +253,7 @@
     <Compile Include="Assets\otherGunAttributes.cs" />
     <Compile Include="Assets\perspectiveSwitcher.cs" />
     <Compile Include="Assets\successTester.cs" />
+    <Compile Include="Assets\temporaryEnemyScriptForGunUpgrade.cs" />
     <Compile Include="Assets\testingScripts\monkeySort.cs" />
     <Compile Include="Assets\testingScripts\randomNumberGenerator.cs" />
     <Compile Include="Assets\testingScripts\tester.cs" />
