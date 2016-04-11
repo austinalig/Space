@@ -207,7 +207,7 @@ namespace UnitySampleAssets.Characters.FirstPerson
 				healthBarSlider.value = health;
 			}
 			else if(other.name == SpecialFloor.name)
-				Application.LoadLevel("Simple level");
+				Application.LoadLevel("MapTest");
 		}
 		
 		private void UpdateCameraPosition(float speed)

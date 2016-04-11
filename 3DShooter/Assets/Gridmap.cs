@@ -9,7 +9,9 @@ public class Gridmap : MonoBehaviour
     public GameObject level4;
     public GameObject level5;
     public GameObject level6;
-    public int cubesize;
+    public GameObject Goal;
+    public GameObject player;
+    public int cubesize = 1000;
     ///TODO: ADD TRIGGER FOR BUILDMAP
     void Start()
     {
@@ -20,7 +22,7 @@ public class Gridmap : MonoBehaviour
             rand1 = Random.Range(4, 11);
             rand2 = Random.Range(4, 11);
             map[i] = new int[rand1, rand2];
-            map[1] = Fillnext(map[i], 0, 0, rand1, rand2);
+            map[i] = Fillnext(map[i], 0, 0, rand1, rand2);
             BuildMap(map[i], cubesize, rand1, rand2);
             i++;
         }
@@ -47,6 +49,8 @@ public class Gridmap : MonoBehaviour
             counter = counter;
         else if ((map[x, y + 1] % 8 / 4 == 1) || ((map[x, y + 1] == 0) && (rand4 == 1)))
             counter += 1;
+        if ((x == 0) && (y == 0) && (counter == 0))
+            counter = 3;
         map[x, y] = counter;
         int curr = map[x, y];
 
@@ -78,16 +82,17 @@ public class Gridmap : MonoBehaviour
 
     void BuildMap(int[,] map, int scale, int XDIM, int YDIM)
     {
-
+        bool Flag = false;
         int i, j, v;
         GameObject level = level6;
         int rot = 0;
         Debug.Log(XDIM);
         Debug.Log(YDIM);
-        for (i = 0; i < XDIM - 1; i++)
+        for (i = 0; i < XDIM; i++)
         {
             for (j = 0; j < YDIM; j++)
             {
+                int randy = Random.Range(0, 11);
                 v = map[i, j];
                 switch (v)
                 {
@@ -172,9 +177,16 @@ public class Gridmap : MonoBehaviour
                         break;
                 }
                 Instantiate(level, new Vector3(i * scale, 0, -j * scale), Quaternion.Euler(0, rot, 0));
-
+            if  ((randy==1)&&(((level != level6) && (Flag == false)) && ((i != 0)||(j != 0))))
+                {
+                    Instantiate(Goal, new Vector3(i * scale, 0, -j * scale), Quaternion.Euler(0,0,0));
+                    Flag = true;
+                }
+                if ((i == XDIM && j == YDIM) && (Flag == false))
+                    Instantiate(Goal, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
 
             }
         }
+        Instantiate(player, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
     }
 }

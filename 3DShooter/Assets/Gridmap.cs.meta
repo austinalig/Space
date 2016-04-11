@@ -1,10 +1,18 @@
 fileFormatVersion: 2
 guid: da61249c04fe16b47a3c4f1131875f19
-timeCreated: 1459588726
+timeCreated: 1460394409
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - level1: {fileID: 123642, guid: 3e1f1b0790e394e4d866bf8a49fb4c9b, type: 2}
+  - level2: {fileID: 197520, guid: f25d85b14ddb715429b78bbc3b4f0146, type: 2}
+  - level3: {fileID: 129694, guid: 4f16682030f09644aa2cc58eeca322c6, type: 2}
+  - level4: {fileID: 137296, guid: 909b65c0851ab0f4c81bf7ddb740ff76, type: 2}
+  - level5: {fileID: 187950, guid: d74d80179ec11c147a19a243bb6ad78e, type: 2}
+  - level6: {fileID: 135828, guid: dfef1ca7cfd713d4fb52e836bb7dc858, type: 2}
+  - Goal: {fileID: 191420, guid: 0ab81858502dca94eb332bfcd6416b1f, type: 2}
+  - player: {fileID: 190160, guid: 13f2224f89be6d44fb7c03fc3598f841, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

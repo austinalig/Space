@@ -12,5 +12,5 @@ public class Leveltrigger : MonoBehaviour {
 	void Update () {
 	
 	}
-	void ontriggerenter(Collider other){ Application.LoadLevel("Simple level");}
+	void ontriggerenter(Collider other){ Application.LoadLevel("MapTest");}
 }
