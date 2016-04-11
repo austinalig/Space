@@ -30,24 +30,28 @@ public class Gridmap : MonoBehaviour
 
     int[,] Fillnext(int[,] map, int x, int y, int XMAX, int YMAX)
     {
-        int rand1 = Random.Range(0, 2), rand2 = Random.Range(0, 2), rand3 = Random.Range(0, 2), rand4 = Random.Range(0, 2);
+        Debug.Log(x);
+        Debug.Log(y);
+        Debug.Log(XMAX);
+        Debug.Log(YMAX);
+        int rand1 = Random.Range(0, 3), rand2 = Random.Range(0, 3), rand3 = Random.Range(0, 3), rand4 = Random.Range(0, 3);
         int counter = 0;
         ///Decide how to generate Curr. Using rng, or deterministically
         if (x == 0)
-            counter = counter;
-        else if (((map[x - 1, y] / 2) % 2 == 1) || ((map[x - 1, y] == 0) && (rand1 == 1)))
+            x = 0;
+        else if (((map[x - 1, y] / 2) % 2 == 1) || ((map[x - 1, y] == 0) && (rand1 != 0)))
             counter += 8;
         if (y == 0)
-            counter = counter;
-        else if ((map[x, y - 1] % 2 == 1) || ((map[x, y - 1] == 0) && (rand2 == 1)))
+            y = 0;
+        else if ((map[x, y - 1] % 2 == 1) || ((map[x, y - 1] == 0) && (rand2 != 0)))
             counter += 4;
-        if (x == XMAX)
-            counter = counter;
-        else if (((map[x + 1, y] / 8) == 1) || ((map[x + 1, y] == 0) && (rand3 == 1)))
+        if (x == XMAX-1)
+            x = XMAX-1;
+        else if (((map[x + 1, y] / 8) == 1) || ((map[x + 1, y] == 0) && (rand3 != 0)))
             counter += 2;
-        if (y == YMAX)
-            counter = counter;
-        else if ((map[x, y + 1] % 8 / 4 == 1) || ((map[x, y + 1] == 0) && (rand4 == 1)))
+        if (y == YMAX-1)
+            y = YMAX-1;
+        else if ((map[x, y + 1] % 8 / 4 == 1) || ((map[x, y + 1] == 0) && (rand4 != 0)))
             counter += 1;
         if ((x == 0) && (y == 0) && (counter == 0))
             counter = 3;
